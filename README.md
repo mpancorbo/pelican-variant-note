@@ -1,4 +1,4 @@
 pelican-variant-note
 ====================
 
-Theme for pelican
+This is a theme for pelican.
