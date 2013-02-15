@@ -13,6 +13,8 @@ Its main tips:
 
 Actually it is used on my blog [Bitakoro](http://bitakoro.tk/)
 
+![](https://raw.github.com/mpancorbo/pelican-variant-note/master/preview.png)
+
 Variables
 ---------
 
