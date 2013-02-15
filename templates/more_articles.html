@@ -1,0 +1,13 @@
+{# NOT USED #}
+{% block more_articles %}
+{% if MORE_ARTICLES_NUMBER > 0 and articles|length > DEFAULT_PAGINATION %}
+<h2>Pliaj artikoloj</h2>
+<ul class="sidemenu">
+{% for article in articles %}
+{% if loop.index > DEFAULT_PAGINATION and loop.index < DEFAULT_PAGINATION + MORE_ARTICLES_NUMBER %}
+<li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+{% endif %}
+{% endfor %}
+</ul>
+{% endif %}
+{% endblock %}

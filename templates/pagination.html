@@ -1,0 +1,18 @@
+{% if DEFAULT_PAGINATION %}
+<div class="post"><p>
+	{% if articles_page.has_previous() %}
+		
+			{% if articles_page.previous_page_number() == 1 %}
+				<a class="pagination" href="{{ SITEURL }}/{{ page_name }}.html">
+			{% else %}
+				<a class="pagination" href="{{ SITEURL }}/{{ page_name }}{{ articles_page.previous_page_number() }}.html">
+			{% endif %}
+			&larr; Postaj artikoloj   </a>
+			
+	{% endif %}
+	{% if articles_page.has_next() %}
+		<a class="pagination" href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html" >Antaŭaj artikoloj &rarr;</a>
+	{% endif %}
+</p></div>
+{% endif %}
+

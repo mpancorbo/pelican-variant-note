@@ -1,0 +1,8 @@
+{% extends "index.html" %}
+
+{% block title %}{{ SITENAME }} &mdash; Artikoloj de {{ author|striptags }}{% endblock %}
+{% block content_title %}
+<div class="page-title">
+	<p>Artikoloj verkita de {{ author }}</p>
+</div>
+{% endblock %}

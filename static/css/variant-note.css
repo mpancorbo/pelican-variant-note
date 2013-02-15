@@ -1,0 +1,105 @@
+/*
+Original design: Variant Note (v1.1 - Mar 03, 2012) - A free xhtml/css website template by Andreas Viklund.
+For more information, see http://andreasviklund.com/templates/variant-note/
+*/
+
+@font-face {
+  font-family: 'Oxygen Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Oxygen Mono'), local('OxygenMono-Regular'), url(http://themes.googleusercontent.com/static/fonts/oxygenmono/v1/BzV4DVOwAgGelLT9EC5xyobN6UDyHWBl620a-IRfuBk.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'PT Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local('PT Mono'), local('PTMono-Regular'), url(http://themes.googleusercontent.com/static/fonts/ptmono/v1/q-8MB3u-6uRcCyTjD42CkA.woff) format('woff');
+}
+
+
+/* Main containers */
+body {padding:0; margin:0; font-size: 10pt; font-family: 'PT Mono', monospace; background:#fff /*url(../images/background.jpg) top center no-repeat*/; color:#333; text-align:center; line-height:1.4em;}
+#wrap {width:960px; text-align:left; margin:0 auto;}
+
+/* Header */
+#header {height:160px; margin:0 0 20px 0;padding-top:36px;}
+#title {padding:20px 0 10px 140px; height:100px;  background:transparent url(../images/logo.png) top left no-repeat; }
+h1 {margin:0 auto 5px auto; padding:0; font-size:3em; font-weight:400;color:#888; letter-spacing:-1px; line-height:1.2em; text-shadow:#bbb 2px 2px 4px;}
+h1 a {color:#9e1616; font-weight:700; text-decoration:none;}
+h1 a:hover {color:#555; text-decoration:none;}
+.slogan {color:#555; font-size:1.2em; margin:0 0 15px 5px; padding:0;}
+
+/* HTML Tags */
+a {text-decoration:none; font-weight:400; color:#9e1616;}
+/*a:hover {text-decoration:underline;} */
+a:hover {color: #888;}
+
+a img {border:0;}
+h2 {margin:10px 0 5px 0; color:#9e1616; font-size:1.8em; font-weight:400; border-bottom:1px solid #ccc;}
+h2 a {font-weight:400;}
+/*h3 {font-size:1.6em; font-weight:400; margin:0 0 10px 0; padding:2px 0; color:#9e1616; font-size:1.2em; font-weight:400; border-bottom:1px solid #ccc;}
+h2,h3 {text-shadow:#aaa 0px 0px 2px; border-left:5px solid #ccc; padding:5px 10px;}*/
+h2 {text-shadow:#aaa 0px 0px 2px; border-left:5px solid #ccc; padding:5px 10px;}
+
+p {margin:0 0 20px 18px;}
+ul {margin:0 0 20px 20px; padding:0;}
+li {margin:0; padding:0 0 0 5px;}
+blockquote {background: #eee;}
+code {font: 1.0em 'PT Mono', Courier, Courier New, monospace; background: #eee;}
+
+
+
+/* Sidebar */
+#sidebar {width:240px; float:left; margin:0 0 25px 0; padding:0; color:#444;}
+#sidebar h2 {font-size:1.5em; padding-bottom:3px; border-bottom:1px solid #ccc; margin-bottom:5px;}
+#sidebar ul {list-style:none; margin:0 0 15px 18px;}
+#sidebar li {padding:0; margin:0;}
+#sidebar ul.sidemenu {width:200px; padding:0; margin:0 0 20px 18px;}
+#sidebar ul.sidemenu li a {color:#333; display:block; padding:5px 0; margin:0; font-size:1.3em; text-shadow:#aaa 0px 0px 2px;}
+#sidebar ul.sidemenu li a:hover {color:#9e1616; text-decoration:none; text-shadow:#aaa 0px 0px 2px;}
+#sidebar ul.sidemenu li a.active {color:#9e1616; text-shadow:#aaa 0px 0px 2px;}
+#sidebar ul.sidemenu ul {width:180px; padding:0; margin:0 0 0 20px;}
+#sidebar ul.sidemenu ul li a {padding:2px 0; margin:0; font-size:1em;}
+
+/* Content area */
+#content {text-align:left; margin:0 0 25px 280px; width:680px;}
+#content img {margin:5px 0;}
+#content em {color:#666}
+#content h3 {margin:0 auto 6px auto; padding:0; font-size:1.5em; font-weight:400;color:#888; letter-spacing:-1px; text-shadow:#bbb 2px 2px 4px;}
+
+.page-title {margin:0 0 30px 0; text-align: center; background:#9e1616; color:#ccc; font-weight: bold; font-size:1.2em;}
+.post {margin:0 0 30px 0;}
+.left {float: left;}
+.right {float: right;}
+.date {color:#666; text-align:right !important; padding: 0 10px 0 0; margin-left:0;font-size:0.9em;}
+
+.postmeta {color:#666; text-align:right !important; padding:5px 10px 0 0; margin-left:0; border-top: 1px solid #ccc; border-right:5px solid #ccc; font-size:0.9em;}
+.postmeta a:hover {color: #333;}
+/*.pagination {border-bottom:1px solid #ccc; border-left:5px solid #ccc; padding:5px 10px;}*/
+.pagination {margin: 0 3em 0 0;}
+
+/* Footer */
+#footer {font-size:0.9em; clear:both; width:960px; line-height:1.4em; color:#555; font-weight:400; margin-bottom:10px; border-top:1px solid #ccc; border-left:5px solid #ccc;}
+#footer p {padding:5px 0 5px 10px; margin:0;}
+#footer a {color:#555; font-weight:400; text-decoration:none; border-bottom: 1px dotted #888;}
+
+/* Various classes */
+/*.featureimage {margin:5px auto 20px; display:block;}*/
+#featureimage {width:680px; height:180px; background: url(../images/front.jpg) top left no-repeat;}
+.centered {text-align:center;}
+.hide {display:none;}
+.clear {clear:both; visibility:hidden;}
+
+/* Alternate layout */
+body.singlecol #sidebar {width:960px; margin:0 auto; float:none;}
+body.singlecol #content {width:960px; margin:20px auto;}
+
+
+
+
+
+
+
+
+

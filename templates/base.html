@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="{{ DEFAULT_LANG }}">
+<head>
+		{% block head %}
+		<title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
+		<meta charset="utf-8" />
+		<meta name="description" content="Taglibro, blogo de Manolo" />
+		<meta name="keywords" content="esperanto,taglibro,blogo,blog" />
+		<meta name="author" content="{{ AUTHOR }}" />
+		<link rel="profile" href="http://gmpg.org/xfn/11" />
+		<!--
+		<link href='http://fonts.googleapis.com/css?family=Oxygen+Mono' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=PT+Mono&subset=latin,cyrillic-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+		-->
+	
+	<link rel="stylesheet" href="{{ SITEURL }}/theme/css/fontawesome.css" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/variant-note.css"  title="Variant Note" media="all" />
+		
+		
+		
+		<link rel="alternate" type="application/atom+xml"
+			title="{{ SITENAME }} — Flux Atom"
+			href="{{ SITEURL }}/{{ FEED_ATOM }}" /> 
+		{% if FEED_RSS %}
+		<link rel ="alternate" type="application/rss+xml"
+			title="{{ SITENAME }} — Flux RSS"
+			href="{{ SITEURL }}/{{ FEED_RSS }}" /> 
+		{% endif %}
+		<!--[if lte IE 8]><script src="{{ SITEURL }}/theme/js/html5shiv.js"></script><![endif]-->
+		{% if MINT %}
+		<script src="/mint/?js" type="text/javascript"></script>
+		{% endif %}
+		{% endblock head %}
+		<script type="text/javascript" >
+			function toggle(div) {
+				if (document.getElementById(div).style.display=='') {
+					document.getElementById(div).style.display = 'none';
+					return
+				} document.getElementById(div).style.display = ''; 
+			}	
+		</script>
+</head>
+
+<body>
+<div id="wrap">
+
+	<div id="header">
+		<div id="title">
+			<h1><a href="{{ SITEURL }}">{{ SITENAME }}</a></h1>
+			{% if SITESUBTITLE %}<p class="slogan">{{ SITESUBTITLE }}</p>{% endif %}
+		</div>
+	</div>
+		<div id="sidebar">
+			<h2>{{ MENU_TEXT or 'Menu' }}</h2>
+			<ul class="sidemenu">
+			{% if FEED_ATOM_ALL %}
+			<li><a href="{{ SITEURL }}/{{ FEED_ATOM_ALL }}"><i class="icon-rss"></i> abonfluo</a></li>
+			{% endif %}
+			{% if FEED_RSS %}
+			<li><a href="{{ SITEURL }}/{{ FEED_RSS }}"><i class="icon-rss"></i> abonfluo</a></li>
+			{% endif %}
+			<li><a href="{{ SITEURL }}/archives.html"><i class="icon-folder-open"></i> arĥivo</a></li>
+			{% for title, link in MENUITEMS %}
+			<li><a href="{{ link }}">{{ title }}</a></li>
+			{% endfor %}
+			
+			<li><a onclick="toggle('etikedoj')" style="cursor: pointer;"><i class="icon-tags"></i> etikedoj</a><li>
+				<ul id="etikedoj" style="display: none;">
+				{% for tag, article in tags %}
+			    <li><a href="{{ SITEURL }}/{{ tag.url }}"><i class="icon-tag"></i> {{ tag.name }}</a></li>
+				{% endfor %}
+				</ul>
+			{% for p in PAGES %}
+			<li><a{% if p == page %} class="active"{% endif %} href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+			{% endfor %}
+			</ul>
+
+			{% if DISPLAY_CATEGORIES_ON_MENU %}
+			<h2>{{ CATEGORIES_TEXT or 'Categories' }}</h2>
+			<ul class="sidemenu">
+			  {% for cat, null in categories %}
+			<li><a{% if cat == category %} class="active"{% endif %} href="{{ SITEURL }}/{{ cat.url }}">
+			{% if CATEGORY_ICONS %} {% for tag, icon in CATEGORY_ICONS %} {% if tag == cat %}<i class="icon-{{ icon }}"></i>{% endif %} {% endfor %} {% endif %}
+			{{ cat }}</a></li>
+			{% endfor %}
+			</ul>	
+			{% endif %}
+
+
+			{% if SOCIAL %}
+			<h2>{{ SOCIAL_TEXT or 'Social' }}</h2>		
+			<ul>
+			 {% for name, url in SOCIAL %}
+			<li><a href="{{ url }}">{{ name }}</a></li>  
+			{% endfor %}
+			</ul>
+			{% endif %}
+
+			{% if LINKS %}
+			<h2>{{ LINKS_TEXT or 'Blogroll' }}</h2>		
+			<ul>
+			 {% for name, url in LINKS %}
+			<li><a href="{{ url }}">{{ name }}</a></li>  
+			{% endfor %}
+			</ul>
+			{% endif %}
+			
+	</div>
+		
+	
+		<div id="content">
+			{% block content_title %}{% endblock %}
+			<div id="featureimage">&nbsp;</div>
+			{% block content %}
+			{% endblock %}
+		</div>
+		
+		<div id="footer">
+		
+			<p>{{ FOOTER_TEXT or 'Powered by <a href="http://pelican.readthedocs.org">Pelican</a>, theme by <a href="http://andreasviklund.com/">Andreas Viklund</a>.' }}</br>
+			
+			{% if GOOGLE_ANALYTICS %}
+				<script type="text/javascript">
+					var _gaq = _gaq || [];
+					_gaq.push(['_setAccount', '{{ GOOGLE_ANALYTICS }}']);
+					_gaq.push(['_trackPageview']);
+					(function() {
+						var ga = document.createElement('script'); 
+						ga.type = 'text/javascript'; ga.async = true;
+						ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+						var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+					})();
+				</script>
+			{% endif %}
+			{% if DISQUS_SITENAME %}
+				{% include 'disqus_script.html' %}
+			{% endif %}
+		</div><!-- /#footer -->
+</div><!-- /#wrap -->
+	
+</body>
+</html>

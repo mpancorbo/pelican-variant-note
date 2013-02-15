@@ -1,0 +1,7 @@
+{% extends "index.html" %}
+{% block title %}{{ SITENAME }} &mdash; Artikoloj en sekcio {{ category|striptags }}{% endblock %}
+{% block content_title %}
+<div class="page-title">
+	<p>Artikoloj sub sekcio {% if CATEGORY_ICONS %} {% for cat, icon in CATEGORY_ICONS %} {% if cat == category %}<i class="icon-{{ icon }}"></i>{% endif %} {% endfor %} {% endif %} {{ category }}</p>
+</div>
+{% endblock %}

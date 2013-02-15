@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content_title %}
+{% endblock %}
+
+{% block content %}
+	{% for article in articles_page.object_list %}
+	
+<div class="post">
+
+	{% include 'article_title.html' %}
+	
+	{% if loop.index == 1 or article.content == article.summary %}
+		{{ article.content }}
+	{% else %} 
+		{{ article.summary }}
+		<p><a href="{{ SITEURL }}/{{ article.url }}">Plu legi &hellip; </a></p>			
+	{% endif %}
+	{% include 'article_footer.html' %}
+				
+</div>  <!--/#post-->
+		
+	{% endfor %}
+	{% include 'pagination.html' %}
+
+{% endblock content %}
+
+
+

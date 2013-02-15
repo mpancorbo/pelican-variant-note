@@ -1,0 +1,16 @@
+<p class="postmeta">
+<a href="{{ SITEURL }}/{{ article.category.url }}" title="Ĉiuj artikoloj el sekcio '{{ article.category }}'" rel="category tag">
+{% if CATEGORY_ICONS %} {% for cat, icon in CATEGORY_ICONS %} {% if cat == article.category %}<i class="icon-{{ icon }}"></i>{% endif %} {% endfor %} {% endif %}{{ article.category }} </a>
+
+{% if DISQUS_SITENAME %}
+&middot; <a href="{{ SITEURL }}/{{ article.url }}#disqus_thread" title="Komentoj pri {{ article.title|striptags }}"><i class="icon-comment"></i></a> 
+{% endif %}
+
+{% include 'twitter.html' %}{% include 'googleplus.html' %}{% include 'facebook.html' %}
+
+
+{% if article.tags %}
+<br /><i class="icon-tags"></i> {% set delimiter = joiner() %} {% for tag in article.tags|sort %}{{- delimiter() }} <a href="{{ SITEURL }}/{{ tag.url }}" rel="tag">{{ tag }}</a>{% endfor %}
+{% endif %}
+
+</p>
